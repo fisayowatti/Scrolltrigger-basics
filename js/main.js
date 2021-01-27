@@ -17,12 +17,28 @@ function init() {
     scrollTrigger: {
       trigger: "#project02",
       start: "top bottom-=10%",
-      end: "bottom center-=10%",
+      //   end: "bottom center-=10%",
       toggleClass: "active",
       scrub: true,
       markers: true,
     },
   });
+
+  //create a parallax effect
+  const parallaxTl = gsap.timeline({
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".bcg-parallax",
+      start: "top center+=50",
+      end: "bottom center",
+      scrub: true,
+      markers: true,
+    },
+  });
+
+  parallaxTl
+    .from(".content-wrapper", { autoAlpha: 0, duration: 1 })
+    .from(".bcg", { y: "-30%", duration: 3 }, 0);
 }
 
 window.addEventListener("load", function () {
