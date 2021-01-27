@@ -11,7 +11,6 @@ function init() {
   //       markers: true,
   //     },
   //   });
-
   //toggle a class with scrolltrigger
   //   gsap.set("#project02", {
   //     scrollTrigger: {
@@ -23,7 +22,6 @@ function init() {
   //       markers: true,
   //     },
   //   });
-
   //create a parallax effect
   //   const parallaxTl = gsap.timeline({
   //     ease: "none",
@@ -38,19 +36,32 @@ function init() {
   //   parallaxTl
   //     .from(".content-wrapper", { autoAlpha: 0, duration: 1 })
   //     .from(".bcg", { y: "-30%", duration: 3 }, 0);
-
   //create a pinned scroll effect
-  gsap.to(["#intro h1", "#intro p"], {
-    opacity: 0,
-    scrollTrigger: {
-      trigger: "#intro .content",
-      pin: true,
-      start: "top top+=15",
-      scrub: true,
-      markers: true,
-    },
+  //   gsap.to(["#intro h1", "#intro p"], {
+  //     opacity: 0,
+  //     scrollTrigger: {
+  //       trigger: "#intro .content",
+  //       pin: true,
+  //       start: "top top+=15",
+  //       scrub: true,
+  //       markers: true,
+  //     },
+  //   });
+  /* use toggleAction **/
+  const projects = document.querySelectorAll(".project");
+  projects.forEach((project) => {
+    gsap.from(project, {
+      opacity: 0,
+      yPercent: -25,
+      scrollTrigger: {
+        trigger: project.querySelector("img"),
+        start: "top bottom-=30%",
+        // toggleActions: "play none none reverse",
+        scrub: true,
+        markers: true,
+      },
+    });
   });
-
   //simulate pages
   //   gsap
   //     .timeline()
