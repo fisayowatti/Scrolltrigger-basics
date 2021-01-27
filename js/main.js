@@ -11,6 +11,18 @@ function init() {
       markers: true,
     },
   });
+
+  //toggle a class with scrolltrigger
+  gsap.set("#project02", {
+    scrollTrigger: {
+      trigger: "#project02",
+      start: "top bottom-=10%",
+      end: "bottom center-=10%",
+      toggleClass: "active",
+      scrub: true,
+      markers: true,
+    },
+  });
 }
 
 window.addEventListener("load", function () {
