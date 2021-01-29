@@ -83,6 +83,7 @@ function init() {
         start: "top top+=290", //align scroller-start mark to start mark
         scrub: true,
         markers: true,
+        snap: 1,
       },
     });
   });
