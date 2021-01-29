@@ -8,21 +8,29 @@ body {
 }
 
 /* =Main */
-#intro {
+.intro {
   height: 100vh;
   background: linear-gradient(20deg, hsl(134, 60%, 65%), hsl(-171, 64%, 60%));
   text-align: center;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 h1 {
   font-family: "OpenSans-Light", Tahoma, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
 }
-#intro .content {
-  position: absolute;
+.intro .content {
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  /* position: unset; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
   font-size: 20px;
   color: #262626;
 }

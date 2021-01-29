@@ -47,45 +47,55 @@ function init() {
   //       markers: true,
   //     },
   //   });
-  /* use toggleAction **/
-  const projects = document.querySelectorAll(".project");
-  projects.forEach((project) => {
-    gsap.from(project, {
-      opacity: 0,
-      yPercent: -25,
+  /* use toggleAction // using callback functions with scrollTrigger **/
+  //   const projects = document.querySelectorAll(".project");
+  //   projects.forEach((project) => {
+  //     gsap.from(project, {
+  //       opacity: 0,
+  //       yPercent: -25,
+  //       scrollTrigger: {
+  //         trigger: project.querySelector("img"),
+  //         start: "top bottom-=30%",
+  //         // toggleActions: "play none none reverse",
+  //         scrub: true,
+  //         markers: true,
+  //         // onUpdate: ({ progress, direction, isActive, getVelocity }) =>
+  //         //   console.log(progress, direction, isActive, getVelocity()),
+  //         onToggle: () => console.log("toggle"),
+  //         onEnter: () => console.log("enter"),
+  //         onLeave: () => console.log("leave"),
+  //         onEnterBack: () => console.log("enter-back"),
+  //         onLeaveBack: () => console.log("leave-back"),
+  //       },
+  //     });
+  //   });
+  //simulate pages
+
+  const pages = document.querySelectorAll(".intro:not(:last-child)");
+
+  console.log(pages);
+
+  pages.forEach((page) => {
+    gsap.to(page.querySelector(".content"), {
       scrollTrigger: {
-        trigger: project.querySelector("img"),
-        start: "top bottom-=30%",
-        // toggleActions: "play none none reverse",
+        trigger: page.querySelector(".content"),
+        pin: true,
+        start: "top top+=290", //align scroller-start mark to start mark
         scrub: true,
         markers: true,
       },
     });
   });
-  //simulate pages
-  //   gsap
-  //     .timeline()
-  //     .to(["#intro h1", "#intro p"], {
-  //       //   opacity: 0,
-  //       scrollTrigger: {
-  //         trigger: ".content",
-  //         pin: true,
-  //         start: "top top+=290",
-  //         //   end: "bottom bottom",
-  //         scrub: true,
-  //         markers: true,
-  //       },
-  //     })
-  //     .to("#intro", {
-  //       scrollTrigger: {
-  //         trigger: "#project01",
-  //         pin: true,
-  //         start: "top top",
-  //         end: "bottom center+=100",
-  //         scrub: true,
-  //         markers: true,
-  //       },
-  //     });
+  // .to("#intro", {
+  //   scrollTrigger: {
+  //     trigger: "#project01",
+  //     pin: true,
+  //     start: "top top",
+  //     end: "bottom center+=100",
+  //     scrub: true,
+  //     markers: true,
+  //   },
+  // });
 }
 
 window.addEventListener("load", function () {
