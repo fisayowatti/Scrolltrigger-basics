@@ -47,7 +47,7 @@ function init() {
   //       markers: true,
   //     },
   //   });
-  /* use toggleAction **/
+  /* use toggleAction and callback functions **/
   const projects = document.querySelectorAll(".project");
   projects.forEach((project) => {
     gsap.from(project, {
@@ -59,33 +59,16 @@ function init() {
         // toggleActions: "play none none reverse",
         scrub: true,
         markers: true,
+        onUpdate: ({ progress, direction, isActive, getVelocity }) =>
+          console.log(progress, direction, isActive, getVelocity()),
+        onToggle: () => console.log("onToggle"),
+        onEnter: () => "onEnter",
+        onEnterBack: () => "onEnterBack",
+        onLeave: () => "onLeave",
+        onLeaveBack: () => "onLeaveBack",
       },
     });
   });
-  //simulate pages
-  //   gsap
-  //     .timeline()
-  //     .to(["#intro h1", "#intro p"], {
-  //       //   opacity: 0,
-  //       scrollTrigger: {
-  //         trigger: ".content",
-  //         pin: true,
-  //         start: "top top+=290",
-  //         //   end: "bottom bottom",
-  //         scrub: true,
-  //         markers: true,
-  //       },
-  //     })
-  //     .to("#intro", {
-  //       scrollTrigger: {
-  //         trigger: "#project01",
-  //         pin: true,
-  //         start: "top top",
-  //         end: "bottom center+=100",
-  //         scrub: true,
-  //         markers: true,
-  //       },
-  //     });
 }
 
 window.addEventListener("load", function () {
