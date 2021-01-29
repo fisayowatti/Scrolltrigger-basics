@@ -1,4 +1,4 @@
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function init() {
   //   gsap.to("#intro img", {
@@ -73,17 +73,25 @@ function init() {
 
   const pages = document.querySelectorAll(".intro:not(:last-child)");
 
-  console.log(pages);
+  console.log(pages, window.innerHeight);
 
-  pages.forEach((page) => {
-    gsap.to(page.querySelector(".content"), {
+  pages.forEach((page, pageIndex) => {
+    console.log(window.innerHeight * (pageIndex + 1));
+    gsap.to(window, {
+      scrollTo: {
+        y: `${pageIndex + 1}`,
+        // offsetY: 1000,
+        autoKill: true,
+      },
+      duration: 2,
       scrollTrigger: {
         trigger: page.querySelector(".content"),
         pin: true,
-        start: "top top+=290", //align scroller-start mark to start mark
+        start: "top top", //align scroller-start mark to start mark
         scrub: true,
         markers: true,
         snap: 1,
+        // snap: (value) => Math.round(value * 0.00005),
       },
     });
   });
